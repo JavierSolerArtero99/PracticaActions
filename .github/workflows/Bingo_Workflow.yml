@@ -34,21 +34,21 @@ jobs:
     outputs:
       status: ${{ job.status }}
 
-  build_statics_job:
-    name: Build
-    runs-on: ubuntu-latest
-    needs: [syntax_check_job, test_execution_job] 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build app
-        run: |
-          npm i
-          npm run buildDev
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact
-          path: dist
-    outputs:
-      status: ${{ job.status }}
+    build_statics_job:
+      name: Build
+      runs-on: ubuntu-latest
+      needs: [syntax_check_job, test_execution_job] 
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v2
+        - name: Build app
+          run: |
+            npm i
+            npm run buildDev
+        - name: Upload Artifacts
+          uses: actions/upload-artifact@v2
+          with:
+            name: artifact
+            path: dist
+      outputs:
+        status: ${{ job.status }}
