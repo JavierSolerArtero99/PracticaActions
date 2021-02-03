@@ -73,6 +73,33 @@ jobs:
     outputs:
       status: ${{ job.status }}
 
+  email_job:
+    name: Email
+    runs-on: ubuntu-latest
+    # needs: [syntax_check_job, test_execution_job, build_statics_job, deploy_job]
+    needs: [test_execution_job, build_statics_job, deploy_job]
+    if: ${{ always() }} 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Send email
+        uses: ./.github/actions/mail_action
+        with:
+          REPOSITORY: ${{ github.repository }}
+          BRANCH: ${{ github.ref }}
+          NAME_WORKFLOW: ${{ github.workflow }}
+          OWNER: ${{ github.repository_owner }}
+          ACTOR: ${{ github.actor }}
+
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+          SYNTAX: ${{ needs.syntax_check_job.outputs.status }}
+          BUILD: ${{ needs.build_statics_job.outputs.status }}
+          TEST: ${{ needs.test_execution_job.outputs.status }}
+          DEPLOY: ${{ needs.deploy_job.outputs.status }}
+
   update_readme_job:
     name: Update Readme
     runs-on: ubuntu-latest
@@ -83,7 +110,7 @@ jobs:
       - name: Update README.md
         run: |
           sed -i '$d' README.md
-          echo -e "\n\n - Última versión desplegada el día: `date`" >> README.md
+          echo -e "\n\n ### Última versión desplegada el día: `date`" >> README.md
       - name: Save README.md
         run: |
           git config user.name ${{ secrets.GIT_USERNAME }}

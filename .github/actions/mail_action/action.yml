@@ -1,0 +1,53 @@
+name: "Send an email"
+description: "Action to send an email to get jobs status"
+inputs:
+
+  # GITHUB INFO
+  REPOSITORY:
+    description: "Nombre del repositorio"
+    required: true
+  BRANCH:
+    description: "Nombre de la rama"
+    required: true
+  NAME_WORKFLOW:
+    description: "Nombre del workflow"
+    required: true
+  OWNER:
+    description: "Dueño del repositorio"
+    required: true
+  ACTOR:
+    description: "Nombre de usuario que ha sido loggeado"
+    required: true
+
+  # EMAIL
+  EMAIL_FROM:
+    description: "Email de quien es el correo"
+    required: true
+  EMAIL_TO:
+    description: "Email de quien recibe el correo"
+    required: true
+  PASSWORD:
+    description: "Contraseña de quien envía el mensaje"
+    required: true
+
+  # EXECUTION
+  SYNTAX:
+    description: "Estado del job Syntax"
+    required: true
+  BUILD:
+    description: "Estado del job Build"
+    required: true
+  TEST:
+    description: "Estado del job Test"
+    required: true
+  DEPLOY:
+    description: "Estado del job Deploy"
+    required: true
+    
+outputs:
+  response:
+    description: "Respuesta del action"
+    
+runs:
+  using: "node12"
+  main: "dist/index.js"
