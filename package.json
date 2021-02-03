@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Expack is the bare-bones Express and Webpack boilerplate with ES6+ babel transpilation, ESLint linting, Hot Module Reloading, and Jest test framework enabled.",
   "main": "index.js",
-  "eslintIgnore": ["/github/workspace/doc/scripts/linenumber.js", "/github/workspace/doc/scripts/prettify/lang-css.js", "/github/workspace/doc/scripts/prettify/prettify.js"],
   "scripts": {
     "test": "jest",
     "heroku-prebuild": "npm install --dev",
