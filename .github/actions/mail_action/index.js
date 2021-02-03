@@ -21,7 +21,7 @@ const options = {
   - build_statics_job: ${core.getInput("BUILD")}
   ACCION REALIZADA POR: ${core.getInput("ACTOR")}
   OWNER: ${core.getInput("OWNER")}`,
-};
+}; 
 
 //   - syntax_check_job: ${core.getInput("SYNTAX")}
 //   - deploy_job: ${core.getInput("DEPLOY")}
