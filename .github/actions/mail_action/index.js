@@ -17,13 +17,15 @@ const options = {
   WORKFLOW NAME: ${core.getInput("NAME_WORKFLOW")} 
   RAMA: ${core.getInput("BRANCH")} 
   RESULTADOS:
-  - syntax_check_job: ${core.getInput("SYNTAX")}
   - test_execution_job: ${core.getInput("TEST")}
   - build_statics_job: ${core.getInput("BUILD")}
-  - deploy_job: ${core.getInput("DEPLOY")}
   ACCION REALIZADA POR: ${core.getInput("ACTOR")}
   OWNER: ${core.getInput("OWNER")}`,
 };
+
+//   - syntax_check_job: ${core.getInput("SYNTAX")}
+//   - deploy_job: ${core.getInput("DEPLOY")}
+
 
 transporter.sendMail(options, function (error, info) {
   if (!error) {

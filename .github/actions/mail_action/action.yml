@@ -31,23 +31,23 @@ inputs:
     required: true
 
   # EXECUTION
-  SYNTAX:
-    description: "Estado del job Syntax"
-    required: true
+  # SYNTAX:
+  #   description: "Estado del job Syntax"
+  #   required: true
   BUILD:
     description: "Estado del job Build"
     required: true
   TEST:
     description: "Estado del job Test"
     required: true
-  DEPLOY:
-    description: "Estado del job Deploy"
-    required: true
+  # DEPLOY:
+  #   description: "Estado del job Deploy"
+  #   required: true
     
 outputs:
   response:
     description: "Respuesta del action"
-    
+
 runs:
   using: "node12"
   main: "dist/index.js"
