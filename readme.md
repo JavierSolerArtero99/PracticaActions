@@ -16,6 +16,9 @@ Surge es una plataforma en la nube para alojar sitios web estáticos, que es ext
 
 ## Procedimiento de la practica
 
+![](./imgs/demo.png)
+
+
 ### Aspectos generales del workflow
 
 ![](./imgs/1.png)
@@ -45,6 +48,10 @@ La salida del workflow determinará si el job ha sido exitoso o no
 
 ![](./imgs/slint.png)
 
+##### Demostración
+
+![](./imgs/synt.png)
+
 #### test_execution_job
 
 ![](./imgs/test1.png)
@@ -66,6 +73,10 @@ La salisa de este job será el estado de la finalización del job.
 
 ![](./imgs/test2.png)
 
+##### Demostración
+
+![](./imgs/testdemo.png)
+
 #### build_statics_job
 
 ![](./imgs/build.png)
@@ -83,6 +94,10 @@ La finalidad de este job es la creación de los archivos estáticos para el post
 ##### Output
 
 Resultado del job.
+
+##### Demostración
+
+![](./imgs/buildemo.png)
 
 #### deploy_job
 
@@ -102,6 +117,12 @@ Será el encargado de cojer los archivos generados por el job anterior y una vez
 ##### Output
 
 La salida del job será el estado final del job y como ha sido finalizado.
+
+##### Demostración
+
+![](./imgs/deploydemo1.png)
+
+![](./imgs/deploydemo2.png)
 
 #### job
 
@@ -127,15 +148,30 @@ Como podemos observar están todos los valores de entrada y salida que se han co
 
 ![](./imgs/index.png)
 
-Como se puede observar en la previa imagen se importan las librerias que se necesitan para la creación del mensaje. Se loguea el autor que va a hacer el mensaje, se crea el mensaje (origen, destino, asunto y cuerpo).
+Como se puede observar en la previa imagen se importan las librerias que se necesitan para la creación del mensaje. Se loguea el autor que va a hacer el mensaje, se crea el mensaje (origen, destino, asunto y cuerpo). Posteriormente se verá si el mensaje se ha podido enviar, en cualquier caso se notificará mediante el output.
+
+##### Demostración 
+
+![](./imgs/maildemo.png)
+
+![](./imgs/maildemo2.png)
 
 #### job
 
-![]()
+![](./imgs/readme.png)
 
 ##### Función del job
 
+La función de este job es actualizar el readme con información del último commit.
+
 ##### Steps
 
-##### Output
+- Descarga de código
+- Lectura y escritura del readme
+- Por último el bot de github hará un push a la rama correspondiente con los datos del readme actualizados para que estén disponibles en el repositorio principal.
 
+##### Demostración
+
+![](./imgs/reademo.png)
+
+![](./imgs/reademo2.png)
