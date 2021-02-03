@@ -5,22 +5,22 @@ on:
       - githubActions_improvementD
 jobs:
 
-  # syntax_check_job:
-  #   name: Check Syntax 
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v2
-  #     - name: Linter Execution
-  #       uses: github/super-linter@v3
-  #       env:
-  #         DEFAULT_BRANCH: githubActions_improvement
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #         LINTER_RULES_PATH: /
-  #         JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js
-  #         VALIDATE_JAVASCRIPT_ES: true
-  #   outputs:
-  #     status: ${{ job.status }}
+  syntax_check_job:
+    name: Check Syntax 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Linter Execution
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: githubActions_improvement
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: /
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js
+          VALIDATE_JAVASCRIPT_ES: true
+    outputs:
+      status: ${{ job.status }}
 
   test_execution_job:
     name: Testing
@@ -38,7 +38,7 @@ jobs:
   build_statics_job:
     name: Build
     runs-on: ubuntu-latest
-    # needs: [syntax_check_job, test_execution_job] 
+    needs: [syntax_check_job, test_execution_job] 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
