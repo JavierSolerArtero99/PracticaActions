@@ -40,9 +40,9 @@ inputs:
   TEST:
     description: "Estado del job Test"
     required: true
-  # DEPLOY:
-  #   description: "Estado del job Deploy"
-  #   required: true
+  DEPLOY:
+    description: "Estado del job Deploy"
+    required: true
     
 outputs:
   response:
