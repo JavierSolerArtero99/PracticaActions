@@ -16,7 +16,7 @@ const options = {
   text: `REPOSITORIO: ${core.getInput("REPOSITORY")};
   WORKFLOW NAME: ${core.getInput("NAME_WORKFLOW")} 
   RAMA: ${core.getInput("BRANCH")} 
-  RESULTADOS:
+  RESULTADOS: 
   - test_execution_job: ${core.getInput("TEST")}
   - build_statics_job: ${core.getInput("BUILD")}
   ACCION REALIZADA POR: ${core.getInput("ACTOR")}
