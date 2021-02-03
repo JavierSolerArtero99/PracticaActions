@@ -76,8 +76,7 @@ jobs:
   email_job:
     name: Email
     runs-on: ubuntu-latest
-    # needs: [syntax_check_job, test_execution_job, build_statics_job, deploy_job]
-    needs: [test_execution_job, build_statics_job]
+    needs: [syntax_check_job, test_execution_job, build_statics_job, deploy_job]
     if: ${{ always() }} 
     steps:
       - name: Checkout Code
