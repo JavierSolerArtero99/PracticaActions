@@ -31,6 +31,6 @@ transporter.sendMail(options, function (error, info) {
   if (!error) {
     core.setOutput("response", "El mensaje se ha enviado con éxito");
   } else {
-    core.setFailed(error);
+    core.setFailed(error); 
   }
 });
