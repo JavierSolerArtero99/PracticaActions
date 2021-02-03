@@ -31,9 +31,9 @@ inputs:
     required: true
 
   # EXECUTION
-  # SYNTAX:
-  #   description: "Estado del job Syntax"
-  #   required: true
+  SYNTAX:
+    description: "Estado del job Syntax"
+    required: true
   BUILD:
     description: "Estado del job Build"
     required: true

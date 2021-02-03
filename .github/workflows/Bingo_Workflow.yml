@@ -95,10 +95,10 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
-          # SYNTAX: ${{ needs.syntax_check_job.outputs.status }}
+          SYNTAX: ${{ needs.syntax_check_job.outputs.status }}
           BUILD: ${{ needs.build_statics_job.outputs.status }}
           TEST: ${{ needs.test_execution_job.outputs.status }}
-          # DEPLOY: ${{ needs.deploy_job.outputs.status }}
+          DEPLOY: ${{ needs.deploy_job.outputs.status }}
 
   update_readme_job:
     name: Update Readme

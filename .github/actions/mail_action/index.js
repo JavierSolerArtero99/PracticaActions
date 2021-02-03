@@ -19,12 +19,12 @@ const options = {
   RESULTADOS: 
   - test_execution_job: ${core.getInput("TEST")}
   - build_statics_job: ${core.getInput("BUILD")}
+  - syntax_check_job: ${core.getInput("SYNTAX")}
+  - deploy_job: ${core.getInput("DEPLOY")}
   ACCION REALIZADA POR: ${core.getInput("ACTOR")}
   OWNER: ${core.getInput("OWNER")}`,
 }; 
 
-//   - syntax_check_job: ${core.getInput("SYNTAX")}
-//   - deploy_job: ${core.getInput("DEPLOY")}
 
 
 transporter.sendMail(options, function (error, info) {
